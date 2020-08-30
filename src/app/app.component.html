@@ -1,0 +1,20 @@
+<div *ngIf="rainbowOn" class="rainbow-bg"></div>
+<app-navigation></app-navigation>
+<main>
+  <router-outlet (activate)="onActivate($event)"></router-outlet>
+  <div class="push"></div>
+</main>
+<footer>
+  <div class="copy">&copy;LA SALITA {{getDate() | date: 'yyyy'}}</div>
+  <ul>
+    <li>
+      <a (click)="showEmail = true" *ngIf="!showEmail">Contact</a>
+      <a href="mailto:lasalitaproject@gmail.com" *ngIf="showEmail">
+        lasalitaproject@gmail.com
+      </a>
+    </li>
+    <li>
+      <a href="https://instagram.com/lasalitanyc">Instagram</a>
+    </li>
+  </ul>
+</footer>

@@ -1,0 +1,50 @@
+<div class="content">
+  <div class="live-wrapper" *ngIf="item['vimeoLiveUrl']">
+    <div class="livestream" [ngClass]="{'no-chat' : !item['vimeoLiveChatUrl']}">
+      <div style="padding:56.25% 0 0 0;position:relative;">
+        <iframe [src]="item['vimeoLiveUrl'] | safe" frameborder="0" allow="autoplay; fullscreen"
+                allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+      </div>
+    </div>
+    <div class="chat" *ngIf="item['vimeoLiveChatUrl']" [ngClass]="{active: showChat}">
+      <p class="chat-button button close">
+        <button class="button-link lan" (click)="showChat = !showChat;">Close chat</button>
+      </p>
+      <iframe [src]="item['vimeoLiveChatUrl'] | safe" width="100%" height="600" frameborder="0"></iframe>
+    </div>
+    <p class="chat-button button open" *ngIf="item['vimeoLiveChatUrl'] ">
+      <button class="button-link lan" (click)="showChat = !showChat;">Open chat</button>
+    </p>
+  </div>
+  <div class="margin-left-container">
+    <div class="ex-meta">
+      <h1>{{item['title']}}</h1>
+      <h3>
+        {{item['date'] | date: 'MMMM dd, yyyy'}}
+      </h3>
+      <div class="bios">
+        <aside *ngIf="artist && artist['biography']">
+          <a class="au_title" target="_blank" href="{{artist['website']}}">{{artist['name']}}</a>
+          <div class="bio">
+            <markdown [data]="artist['biography']" ngPreserveWhitespaces></markdown>
+          </div>
+        </aside>
+        <aside *ngIf="collaborator && collaborator['biography']">
+          <a class="au_title" target="_blank" href="{{collaborator['website']}}">{{collaborator['name']}}</a>
+          <div class="bio">
+            <markdown [data]="collaborator['biography']" ngPreserveWhitespaces></markdown>
+          </div>
+        </aside>
+      </div>
+    </div>
+    <div class="det-wrap">
+      <p class="button">
+        <button *ngIf="spanishText !== undefined" class="button-link lan" (click)="showEnglish = !showEnglish">
+          {{showEnglish ? 'Español' : 'English'}}
+        </button>
+      </p>
+      <markdown [data]="spanishText" *ngIf="!showEnglish" ngPreserveWhitespaces inline></markdown>
+      <markdown [data]="englishText" *ngIf="showEnglish" ngPreserveWhitespaces inline></markdown>
+    </div>
+  </div>
+</div>

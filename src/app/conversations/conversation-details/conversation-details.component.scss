@@ -1,0 +1,120 @@
+
+.bios {
+  margin-top: 60px;
+}
+
+.live-wrapper {
+  max-width: 1800px;
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 80px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.livestream {
+  width: calc(100% - 350px);
+  float: left;
+}
+
+.livestream.no-chat {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.chat {
+  width: 350px;
+  position: relative;
+  float: right;
+  z-index: 100;
+  right: 0;
+  top: 0;
+}
+
+.close {
+  display: none;
+  margin-bottom: 4px;
+  button {
+    margin-right: 20px;
+  }
+}
+
+.chat-button {
+  display: none;
+  width: 100%;
+  margin-top: 10px;
+
+}
+
+.chat.active {
+  right: 0;
+}
+
+@media(max-width: 1100px) {
+  .live-wrapper {
+    position: relative;
+    left: -30px;
+    width: calc(100% + 60px);
+    margin-bottom: 40px;
+
+    .open {
+      button {
+        margin-right: 30px;
+      }
+    }
+  }
+
+  .live-wrapper, .close {
+    display: block;
+  }
+
+  .chat-button {
+    display: inline-block;
+  }
+
+  .livestream {
+    width: 100%;
+    display: inline-block;
+    overflow: visible;
+  }
+  .chat {
+    position: fixed;
+    right: -100%;
+    padding-top: 80px;
+    height: 100%;
+    background: white;
+    overflow-y: scroll;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+
+    iframe {
+      margin-bottom: 120px;
+    }
+  }
+}
+
+@media(max-width: 960px) {
+  .live-wrapper {
+    left: -20px;
+    width: calc(100% + 40px);
+
+    .open {
+      button {
+        margin-right: 20px;
+      }
+    }
+  }
+}
+
+@media(max-width: 640px) {
+  .chat {
+    width: 100%;
+    padding-bottom: 80px;
+
+  }
+}

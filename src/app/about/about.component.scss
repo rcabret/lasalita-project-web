@@ -1,0 +1,27 @@
+.huge-salita {
+  font-size: 8vw;
+  color: black;
+  font-weight: 900;
+  line-height: 0.8;
+  margin-bottom: 10px;
+}
+
+.block_test {
+  .huge-salita:first-child {
+    font-weight: 900;
+  }
+
+  .huge-salita:nth-child(2) {
+    font-weight: 700;
+  }
+
+  .huge-salita:nth-child(3) {
+    font-weight: 500;
+    letter-spacing: 0.7vw;
+  }
+
+  .huge-salita:nth-child(4) {
+    font-weight: 200;
+    letter-spacing: 0.8vw;
+  }
+}

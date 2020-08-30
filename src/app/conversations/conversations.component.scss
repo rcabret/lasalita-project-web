@@ -1,0 +1,49 @@
+.convo-list {
+  list-style: none;
+
+  li {
+    cursor: pointer;
+    padding-bottom: 60px;
+
+    .title {
+      font-size: 4vw;
+      line-height: 1;
+      font-weight: bold;
+    }
+
+    .date {
+      font-size: 1.9vw;
+      line-height: 1.2;
+      margin-top: 6px;
+    }
+  }
+
+  li:hover {
+    .title {
+      text-decoration: underline;
+    }
+  }
+}
+
+
+@media (max-width: 960px) {
+
+  .convo-list {
+
+    li {
+
+      .title {
+        font-size: 3.4rem;
+      }
+
+      .date {
+        font-size: 2rem;
+      }
+    }
+
+  }
+}
+
+@media(max-width: 640px) {
+
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0px;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .standard-wrapper {
+            max-width: 1800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .livestream {
+            width: calc(100% - 350px);
+        }
+
+        .chat {
+            width: 350px;
+            position: absolute;
+            z-index: 100;
+            right: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="standard-wrapper">
+    <div class="livestream">
+        <div style="padding:56.25% 0 0 0;position:relative;">
+            <iframe src="https://player.vimeo.com/video/422511729" frameborder="0" allow="autoplay; fullscreen"
+                    allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+        </div>
+    </div>
+    <div class="chat">
+        <iframe src="https://vimeo.com/live-chat/422511729/" width="100%" height="600" frameborder="0"></iframe>
+    </div>
+</div>
+
+</body>
+</html>

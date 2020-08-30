@@ -1,0 +1,33 @@
+<div class="content">
+  <div class="side-bar">
+    <div class="block-menu-static">
+      <div class="block-bg--bottom"></div>
+      <a routerLink="views" class="sub-menu-text"
+         routerLinkActive="active">Views<span class="comma">,</span></a>
+    </div>
+    <div class="block-menu-static">
+      <div class="block-bg--bottom"></div>
+      <a routerLink="press-release"
+         class="sub-menu-text"
+         routerLinkActive="active">Press Release</a>
+    </div>
+  </div>
+  <div class="left-block"></div>
+  <div class="right-block" *ngIf="item">
+    <div class="ex-meta">
+      <h1 *ngIf="item['artists'] === undefined || item['artists'].length > 1">{{item['title']}}</h1>
+      <h1 *ngIf="item['artists'] && item['artists'].length == 1">{{item['artists'][0].name}}</h1>
+      <h2 *ngIf="item['artists'] && item['artists'].length == 1">{{item['title']}}</h2>
+      <h3>
+        {{item['startDate'] | date: 'MMMM dd'}}
+        — {{item['endDate'] | date: 'MMMM dd, yyyy'}}
+      </h3>
+      <ul class="a-list" *ngIf="item['artists'] && item['artists'].length > 1">
+        <li *ngFor="let artist of item['artists']">{{artist['name']}}</li>
+      </ul>
+    </div>
+    <router-outlet (activate)="onActivate($event)"></router-outlet>
+  </div>
+</div>
+
+

@@ -1,0 +1,125 @@
+:host {
+  display: inline-block;
+  width: 100%;
+}
+
+.image-wrap {
+  width: 100%;
+  position: relative;
+
+  img, .image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    top: 0;
+    opacity: 0;
+    -webkit-transition: opacity 0.5s ease-out;
+    -moz-transition: opacity 0.5s ease-out;
+    -ms-transition: opacity 0.5s ease-out;
+    -o-transition: opacity 0.5s ease-out;
+    transition: opacity 0.5s ease-out;
+  }
+
+  .image {
+    background-size: cover !important;
+    background-position-y: top !important;
+    background-repeat: no-repeat;
+  }
+}
+
+.image-wrap:hover {
+  .info-panel {
+    opacity: 1;
+  }
+}
+
+.preload-placeholder {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  border: 2px solid black;
+  opacity: 1;
+}
+
+.info-panel {
+  position: absolute;
+  align-items: center;
+  displaY: flex;
+  color: white;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  opacity: 0;
+  font-weight: 700;
+  z-index: 2;
+  -webkit-transition: opacity 0.3s;
+  -moz-transition: opacity 0.3s;
+  -ms-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+
+  span {
+    max-width: 70%;
+    font-size: calc(3vw - 3pt);
+    line-height: 0.9;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .grid-panel-bg {
+    @extend .preload-placeholder;
+    opacity: 0.8 !important;
+    z-index: -1;
+  }
+}
+
+
+.image-wrap.loaded {
+
+  .preload-placeholder {
+    opacity: 0;
+  }
+
+  img, .image {
+    opacity: 1;
+  }
+}
+
+.description {
+  font-size: 1.2vw;
+  padding: 10px 0;
+}
+
+@media screen and (min-width: 1440px) {
+
+  .info-panel {
+    span {
+      font-size: calc(2.4vw - 3pt);
+      letter-spacing: 0.5px;
+    }
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .info-panel {
+    span {
+      font-size: calc(5vw - 3pt);
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .info-panel {
+    span {
+      font-size: calc(10vw - 3pt);
+    }
+  }
+
+  .description {
+    font-size: 1.4rem;
+    padding: 10px 0;
+  }
+}

@@ -1,0 +1,17 @@
+<div class="content margin-left-container">
+  <div>
+    <p>
+      <button class="button-link lan" (click)="showSpanish = !showSpanish">
+        {{showSpanish ? 'English' : 'Español'}}
+      </button>
+    </p>
+    <p *ngIf="!showSpanish">
+      <markdown [data]="textEnglish" ngPreserveWhitespaces></markdown>
+    </p>
+    <p *ngIf="showSpanish">
+      <markdown [data]="textSpanish" ngPreserveWhitespaces></markdown>
+    </p>
+  </div>
+</div>
+
+

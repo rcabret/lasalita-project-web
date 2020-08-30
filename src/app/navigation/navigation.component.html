@@ -1,0 +1,45 @@
+<nav>
+  <div class="wrap">
+    <a class="logo" routerLink="">LA SALITA</a>
+    <ul class="links">
+      <li>
+        <a routerLink="fairs" routerLinkActive="active">Fairs</a>
+      </li>
+      <li>
+        <a routerLink="conversations" routerLinkActive="active">Conversations,</a>
+      </li>
+      <li>
+        <a routerLink="programming" routerLinkActive="active">Programming,</a>
+      </li>
+      <li>
+        <a routerLink="exhibitions" routerLinkActive="active">Exhibitions,</a>
+      </li>
+      <li>
+        <a routerLink="artists" routerLinkActive="active">Artists,</a>
+      </li>
+    </ul>
+    <div class="mobile-menu" (click)="showMobileNav = !showMobileNav">. . .</div>
+  </div>
+</nav>
+
+<div id="links-mobile" class="standard-container" *ngIf="showMobileNav" [@opacityAnimation]>
+  <div class="mobile-menu white" (click)="showMobileNav = !showMobileNav">. . .</div>
+  <ul class="links" (click)="showMobileNav = false">
+    <li>
+      <a routerLink="artists" routerLinkActive="active">Artists</a>
+    </li>
+    <li>
+      <a routerLink="exhibitions" routerLinkActive="active">Exhibitions</a>
+    </li>
+    <li>
+      <a routerLink="programming" routerLinkActive="active">Programming</a>
+    </li>
+    <li>
+      <a routerLink="conversations" routerLinkActive="active">Conversations</a>
+    </li>
+    <li>
+      <a routerLink="fairs" routerLinkActive="active">Fairs</a>
+    </li>
+  </ul>
+</div>
+

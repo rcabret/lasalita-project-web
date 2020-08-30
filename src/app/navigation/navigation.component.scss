@@ -1,0 +1,240 @@
+.logo {
+  font-weight: inherit;
+  font-size: inherit;
+  float: left;
+}
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  height: 60px;
+  right: 20px;
+  top: 0;
+  text-align: right;
+  font-weight: bold;
+  font-size: 2.4rem;
+}
+
+.white {
+  color: white;
+}
+
+nav {
+  width: 100%;
+  position: fixed;
+  z-index: 900;
+  font-size: 1.9vw;
+  font-weight: 500;
+  -webkit-transition: transform 0.3s;
+  -moz-transition: transform 0.3s;
+  -ms-transition: transform 0.3s;
+  -o-transition: transform 0.3s;
+  transition: transform 0.3s;
+
+  .wrap {
+    padding: 20px 30px 20px 30px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .links {
+    list-style: none;
+    float: right;
+    font-weight: inherit;
+    font-size: inherit;
+
+    li {
+      float: right;
+      padding-left: 10px;
+      position: relative;
+      z-index: 1;
+      cursor: pointer;
+      -webkit-transition: padding 0.3s;
+      -moz-transition: padding 0.3s;
+      -ms-transition: padding 0.3s;
+      -o-transition: padding 0.3s;
+      transition: padding 0.3s;
+
+      a {
+        font-size: inherit;
+      }
+
+      a.active {
+        text-decoration: underline;
+      }
+
+      div {
+        width: 0;
+        position: absolute;
+        height: 90%;
+        top: 0;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        border-bottom: 4px solid black;
+        -webkit-transition: width 0.3s;
+        -moz-transition: width 0.3s;
+        -ms-transition: width 0.3s;
+        -o-transition: width 0.3s;
+        transition: width 0.3s;
+      }
+    }
+
+    li:hover {
+
+      padding-left: 20px;
+      padding-right: 10px;
+
+    }
+
+  }
+}
+
+.scroll-down :host nav {
+  transform: translate3d(0, -100%, 0);
+}
+
+.scroll-up :host nav {
+  transform: none;
+}
+
+#bgs {
+  float: right;
+  list-style: none;
+
+  li {
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    float: left;
+  }
+}
+
+@keyframes list-in {
+  from {
+    -webkit-transform: translate3d(-60px, 0, 0);
+    -moz-transform: translate3d(-60px, 0, 0);
+    -ms-transform: translate3d(-60px, 0, 0);
+    -o-transform: translate3d(-60px, 0, 0);
+    transform: translate3d(-60px, 0, 0);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes list-in {
+  from {
+    -webkit-transform: translate3d(-60px, 0, 0);
+    -moz-transform: translate3d(-60px, 0, 0);
+    -ms-transform: translate3d(-60px, 0, 0);
+    -o-transform: translate3d(-60px, 0, 0);
+    transform: translate3d(-60px, 0, 0);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+
+#links-mobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.9);
+  z-index: 1000;
+  overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: scroll;
+
+  .absolute-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: -1;
+  }
+
+  .links {
+    padding: 80px 20px;
+    z-index: 1;
+
+    li {
+      width: 100%;
+      display: inline-block;
+      margin: 4px 0;
+      animation: list-in 0.2s forwards;
+      opacity: 0;
+
+      a {
+        float: right;
+        font-size: 4.2rem;
+        line-height: 1.5;
+        color: white;
+      }
+
+      a.active {
+        text-decoration: underline;
+      }
+    }
+
+    li:nth-child(2) {
+      animation-delay: 0.05s;
+    }
+
+    li:nth-child(3) {
+      animation-delay: 0.10s;
+    }
+
+    li:nth-child(4) {
+      animation-delay: 0.15s;
+    }
+
+    li:nth-child(5) {
+      animation-delay: 0.20s;
+
+    }
+  }
+}
+
+@media(max-width: 960px) {
+  nav {
+    font-size: 2.4rem;
+
+    .wrap {
+      padding: 20px;
+    }
+
+    .links {
+      display: none;
+    }
+  }
+
+  .mobile-menu {
+    display: flex;
+    align-items: center;
+  }
+
+}
+
+@media(max-width: 640px) {
+  nav {
+    font-size: 2.2rem;
+  }
+}

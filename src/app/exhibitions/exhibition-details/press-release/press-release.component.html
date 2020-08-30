@@ -1,0 +1,9 @@
+<div class="det-wrap">
+  <p class="button">
+    <button *ngIf="spanishText !== undefined" class="button-link lan" (click)="showEnglish = !showEnglish">
+      {{showEnglish ? 'Español' : 'English'}}
+    </button>
+  </p>
+  <markdown [data]="spanishText" *ngIf="!showEnglish" ngPreserveWhitespaces></markdown>
+  <markdown [data]="englishText" *ngIf="showEnglish" ngPreserveWhitespaces></markdown>
+</div>

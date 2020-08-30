@@ -1,0 +1,11 @@
+<div class="content margin-left-container">
+  <ul class="convo-list">
+    <li *ngFor="let convo of conversations">
+      <a routerLink="{{getUrl(convo)}}">
+        <div class="title">{{convo['title']}}</div>
+        <div class="date">{{convo['date'] | date: 'MMMM dd, yyyy'}}</div>
+      </a>
+    </li>
+  </ul>
+</div>
+
