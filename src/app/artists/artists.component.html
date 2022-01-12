@@ -1,5 +1,9 @@
+
+
+
+
 <div class="content">
-  <ul class="artist-list margin-left-container">
-    <li *ngFor="let artist of artistList">{{artist['name']}}</li>
-  </ul>
+  <div class="artist-list margin-left-container">
+    <span *ngFor="let artist of artistList; let i = index">{{artist['name']}}{{i < artistList.length - 1 && ', ' || ''}}</span>
+  </div>
 </div>

@@ -1,12 +1,6 @@
 <div class="content">
   <div *ngFor="let exhibitionObj of exhibitionsList">
     <div class="list-block" *ngIf="exhibitionObj.list.length">
-      <div class="block-menu">
-        <div class="w">
-          <div class="block-bg"></div>
-        </div>
-        <div class="sub-menu-text">{{exhibitionObj.name}}</div>
-      </div>
       <div class="right-block">
         <a class="exhibition"
            routerLink="{{getUrl(exhibition)}}"

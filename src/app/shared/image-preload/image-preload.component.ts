@@ -18,15 +18,14 @@ export class ImagePreloadComponent implements OnInit, OnChanges {
   @Input() fixedRation: number;
   @Input() hideDescription: boolean;
 
-  loaded = false;
+  loaded = true;
   ratio: string;
   url: string;
   id: string;
 
   constructor() {
     this.id = this.generateId(20);
-    this.ratio = this.getRatio();
-    if(this.hideDescription === undefined) {
+    if (this.hideDescription === undefined) {
       this.hideDescription = false;
     }
 
@@ -46,28 +45,26 @@ export class ImagePreloadComponent implements OnInit, OnChanges {
 
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.preloadImage(changes.data.currentValue['fields'].file.url);
+    const imageObj = changes.data.currentValue['fields'].file
+    this.preloadImage(imageObj);
   }
 
-  private getRatio(img?: HTMLImageElement): string {
-    if (!img) {
-      const n = 60 + (Math.random() * 100);
-      return `${(n).toFixed(3)}%`;
+  private getRatio(imageObj): string {
+    const {image} = imageObj.details;
+    if (!image) {
+      return '33%';
     }
-    return `${((img.naturalHeight / img.naturalWidth) * 100).toFixed(3)}%`
+    return `${((image.height / image.width) * 100).toFixed(3)}%`
   }
 
-  private preloadImage(url: string): void {
+  private preloadImage(imageObj): void {
+    this.url = `${imageObj.url}?q=0.5&h=300`;
+    this.ratio = this.getRatio(imageObj);
     const img = new Image();
-    this.url = url;
-    img.src = url;
+    img.src = imageObj.url;
     img.onload = () => {
-      const image: any = document.getElementById(this.id);
-      this.ratio = this.fixedRation == undefined
-        ? this.getRatio(image)
-        : `${this.fixedRation}%`;
       setTimeout(() => {
-        this.loaded = true;
+        this.url = imageObj.url;
       }, 300);
     };
   }

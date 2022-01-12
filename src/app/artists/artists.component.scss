@@ -1,19 +1,24 @@
 .artist-list {
-  list-style: none;
 
-  li {
+  span {
     font-size: 1.9vw;
   }
 }
 
 @media(max-width: 960px) {
+  .artist-list {
+
+    span {
+      font-size: 2.4rem;
+    }
+  }
 
 }
 
 @media(max-width: 640px) {
   .artist-list {
-    li {
-      font-size: 2rem;
+     span {
+      font-size: 2.2rem;
     }
   }
 }

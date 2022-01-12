@@ -4,7 +4,7 @@ import {ArtistsComponent} from "./artists.component";
 
 const routes: Routes = [
   {
-    path: 'artists',
+    path: 'collaborators',
     component: ArtistsComponent
   }
 ];

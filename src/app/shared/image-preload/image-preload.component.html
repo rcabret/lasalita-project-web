@@ -1,7 +1,7 @@
 <div class="image-wrap" [ngClass]="{loaded: loaded}"
      [style.paddingTop]="ratio">
   <div class="preload-placeholder"></div>
-  <img src="{{data?.fields.file.url}}" id="{{id}}"/>
+  <img src="{{url}}" id="{{id}}"/>
 </div>
 <div class="description" *ngIf="data?.fields.description && !hideDescription">
   {{data?.fields.description}}
